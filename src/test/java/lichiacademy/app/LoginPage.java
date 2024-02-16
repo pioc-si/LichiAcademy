@@ -23,22 +23,21 @@ public class LoginPage {
 
     SelenideElement body = $("body");
 
-    private SelenideElement usernameField = $("#username");
-    private SelenideElement passwordField = $("#password");
-    private SelenideElement loginButton = $("#loginButton");
+    SelenideElement loginEmail = $("input[name='login']");
+
+    SelenideElement loginPassword= $("input[name='password']");
+
+    private SelenideElement signinButton= $("button[type='submit']");
 
     public LoginPage(String url){
         Selenide.open(url);
     }
-    public void enterUsername(String username) {
-        usernameField.setValue(username);
-    }
-
-    public void enterPassword(String password) {
-        passwordField.setValue(password);
-    }
 
     public void clickLangButton() {
         langButton.click();
+    }
+
+    public void clickSigninButton() {
+        signinButton.click();
     }
 }

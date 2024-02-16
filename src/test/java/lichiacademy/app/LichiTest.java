@@ -4,12 +4,12 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class LichiTest extends BaseTest {
 
     private final static String Base_URL = "https://prerelease.academy.spb.lichishop.com/";
+    private final static String LOGIN_EMAIL = "";
+    private final static String LOGIN_PASSWORD = "";
 
 
     @Test
@@ -57,6 +57,21 @@ public class LichiTest extends BaseTest {
     }
 
 
+    @Test
+    public void CheckCorrectLogin() {
+        LoginPage loginPage = new LoginPage(Base_URL);
+        loginPage.clickLangButton();
+
+        loginPage.firstLanguage.click();
+        Selenide.refresh();
+        //Works with admin login and password
+        // they are removed here due to security reasons
+        loginPage.loginEmail.setValue(LOGIN_EMAIL);
+        loginPage.loginPassword.setValue(LOGIN_PASSWORD);
+        loginPage.clickSigninButton();
+
+
+    }
 
 
 
