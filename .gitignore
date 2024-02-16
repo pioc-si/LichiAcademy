@@ -1,0 +1,20 @@
+# Maven target directory
+/target/
+
+# IDE specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+*.iws
+
+# Eclipse specific files
+.classpath
+.project
+.settings/
+
+# NetBeans specific files
+/nb-configuration.xml
+
+# Logs
+*.log
