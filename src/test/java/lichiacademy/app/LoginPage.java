@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class LoginPage {
 
@@ -28,6 +29,16 @@ public class LoginPage {
     SelenideElement loginPassword= $("input[name='password']");
 
     private SelenideElement signinButton= $("button[type='submit']");
+
+    SelenideElement navigationBar = $("body nav");
+
+    SelenideElement firstTab = $$("ul[data-justify='center'] li").get(0);
+
+    SelenideElement secondTab = $("ul[data-justify='center']").find("li", 1);
+
+    SelenideElement thirdTab = $("ul[data-justify='center']").find("li", 2);
+
+    SelenideElement fourthTab = $("ul[data-justify='center']").find("li", 3);
 
     public LoginPage(String url){
         Selenide.open(url);
