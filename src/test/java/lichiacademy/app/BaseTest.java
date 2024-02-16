@@ -4,8 +4,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-
 public class BaseTest {
 
     public static void setUp(){
@@ -14,6 +14,7 @@ public class BaseTest {
         Configuration.driverManagerEnabled = true;
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;
+        Configuration.holdBrowserOpen = true;
     }
 
     @BeforeAll
@@ -24,5 +25,12 @@ public class BaseTest {
     @AfterAll
     public static void tearDown(){
         Selenide.closeWebDriver();
+    }
+    @AfterEach
+    public void clean() {
+        // Clear cookies using underlying WebDriver method
+        Selenide.executeJavaScript("window.localStorage.clear();");
+        Selenide.executeJavaScript("window.sessionStorage.clear();");
+        Selenide.clearBrowserCookies();
     }
 }
