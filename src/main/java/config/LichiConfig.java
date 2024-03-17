@@ -20,4 +20,8 @@ public interface LichiConfig extends Config {
 
     @Key("errorLoginText")
     String errorLoginText();
+
+    @Key("profileUrl")
+    String profileUrl();
+
 }

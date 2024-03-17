@@ -6,10 +6,11 @@ import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
+import pages.ProfilePage;
 import tests.TestsSetup;
 
 import static com.codeborne.selenide.Condition.text;
-//import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.visible;
 import org.aeonbits.owner.ConfigFactory;
 
 public class LoginFormTest extends TestsSetup {
@@ -36,6 +37,7 @@ public class LoginFormTest extends TestsSetup {
     @Description("Checking Incorrect Login")
     public void CheckIncorrectLogin() {
         LoginPage loginPage = new LoginPage(config.baseUrl());
+        ProfilePage profilePage = new ProfilePage(config.profileUrl());
 
         loginPage.selectArabicLang();
         Selenide.refresh();
@@ -43,8 +45,9 @@ public class LoginFormTest extends TestsSetup {
         loginPage.setLoginEmail("example@mail.com");
         loginPage.setLoginPassword("incorrect");
         loginPage.clickSigninButton();
+
         loginPage.body.shouldHave(text(config.errorLoginText()));
-        //profilePage.navigationBar.shouldNotBe(visible);
+        profilePage.navigationBar.shouldNotBe(visible);
     }
 
 }

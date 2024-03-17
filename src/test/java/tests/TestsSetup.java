@@ -16,6 +16,7 @@ public class TestsSetup {
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;
         Configuration.holdBrowserOpen = false;
+	Configuration.timeout = 10000;
     }
 
     @BeforeAll

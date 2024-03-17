@@ -4,7 +4,7 @@ public enum LanguageEnum {
     ARABIC("Arabic"),
     ENGLISH("English"),
     POLISH("Polish"),
-    RUSSIAN("Russian");
+    RUSSIAN("Русский");
 
     private String name;
 
